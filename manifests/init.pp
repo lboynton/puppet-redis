@@ -16,5 +16,9 @@ class redis(
         enable     => true,
         hasstatus  => true,
         hasrestart => true,
+        require    => [
+            Package['redis'],
+            File['/etc/redis.conf'],
+        ]
     }
 }
