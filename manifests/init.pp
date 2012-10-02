@@ -1,7 +1,7 @@
 class redis(
     $databases        = 16,
     $maxmemory        = undef,
-    $maxmemory-policy = 'volatile-lru',
+    $maxmemory_policy = 'volatile-lru',
 ) {
     package { 'redis':
         ensure => installed,
