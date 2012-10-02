@@ -6,11 +6,15 @@ class redis(
     package { 'redis':
         ensure     => installed,
         require    => Class['epel'],
-        hasstatus  => true,
-        hasrestart => true,
     }
     file { '/etc/redis.conf':
         content => template('redis/redis.conf.erb'),
         notify  => Service['redis'],
+    }
+    service { 'redis':
+        ensure     => running,
+        enable     => true,
+        hasstatus  => true,
+        hasrestart => true,
     }
 }
