@@ -3,6 +3,8 @@ class redis(
     $maxmemory        = undef,
     $maxmemory_policy = 'volatile-lru',
 ) {
+    include epel
+
     package { 'redis':
         ensure     => installed,
         require    => Class['epel'],
